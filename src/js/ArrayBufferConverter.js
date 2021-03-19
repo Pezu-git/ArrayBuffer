@@ -1,13 +1,11 @@
 // import  getBuffer  from './app.js'
 
 export default class ArrayBufferConverter {
-  // eslint-disable-next-line class-methods-use-this
   load(buffer) {
-    return this.tostring(buffer);
+    this.buffer = buffer;
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  tostring(buffer) {
-    return String.fromCharCode.apply(null, new Uint16Array(buffer));
+  toString() {
+    return String.fromCharCode(...new Uint16Array(this.buffer));
   }
 }
